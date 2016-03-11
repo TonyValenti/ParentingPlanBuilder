@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC232E1C-D97D-4861-87E1-89AF327A41AE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Scheduler</RootNamespace>
+    <AssemblyName>Scheduler</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RazorGenerator.Templating, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorGenerator.Templating.2.3.11\lib\portable-Profile328\RazorGenerator.Templating.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Days.cs" />
+    <Compile Include="Data\Slobotski_Slobotski.cs" />
+    <Compile Include="Data\Huff_Fisher.cs" />
+    <Compile Include="Data\Dvorak_Nauss.cs" />
+    <Compile Include="Data\ProposedParentingPlan.cs" />
+    <Compile Include="Data\CurrentParentingPlan.cs" />
+    <Compile Include="Language\Language.cs" />
+    <Compile Include="ParentingPlan\ParentingPlanWithers.cs" />
+    <Compile Include="ParentingPlan\ActivityWithers.cs" />
+    <Compile Include="ParentingPlan\ScheduleWithers.cs" />
+    <Compile Include="Parents\AlternatingParentingAssignmentFormula.cs" />
+    <Compile Include="Parents\ParentingAssignmentResult.cs" />
+    <None Include="Reporting\Templates\CalendarDayActivityView.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CalendarDayActivityView.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Reporting\Templates\CalendarDayView.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CalendarDayView.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Reporting\Templates\CalendarWeekView.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CalendarWeekView.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Reporting\Templates\CompleteReportOutput.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CompleteReportOutput.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Reporting\Templates\OvernightCalculationsView.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>OvernightCalculationsView.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Reporting\Templates\YearReportView.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>YearReportView.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Reporting\Templates\__Export.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>__Export.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Reporting\Templates\MonthView.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>MonthView.generated.cs</LastGenOutput>
+    </None>
+    <Compile Include="Parents\YearlyAlternatingParentingAssignmentFormula.cs" />
+    <Compile Include="Reporting\CompleteReport.cs" />
+    <Compile Include="Reporting\DayReport.cs" />
+    <Compile Include="Reporting\ExportReport.cs" />
+    <Compile Include="Reporting\MonthReport.cs" />
+    <Compile Include="Reporting\Report.cs" />
+    <None Include="Reporting\Templates\CalendarMonthView.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CalendarMonthView.generated.cs</LastGenOutput>
+    </None>
+    <Compile Include="Reporting\Templates\CalendarDayActivityView.generated.cs">
+      <DependentUpon>CalendarDayActivityView.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\Templates\CalendarDayView.generated.cs">
+      <DependentUpon>CalendarDayView.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\Templates\CalendarWeekView.generated.cs">
+      <DependentUpon>CalendarWeekView.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reporting\Templates\CalendarMonthView.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalendarMonthView.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Templates\CompleteReportOutput.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompleteReportOutput.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Templates\MonthView.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MonthView.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Templates\OvernightCalculationsView.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OvernightCalculationsView.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Templates\YearReportView.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>YearReportView.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\Templates\__Export.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>__Export.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\YearReport.cs" />
+    <Compile Include="Timeline\CalendarTimeline.cs" />
+    <Compile Include="CalendarEntry.cs" />
+    <Compile Include="ParentingPlan\Schedule.cs" />
+    <Compile Include="ParentingPlan\Activity.cs" />
+    <Compile Include="Parents\ParentingAssignment.cs" />
+    <Compile Include="Parents\ParentingAssignmentFormula.cs" />
+    <Compile Include="ParentingPlan\ParentingPlan.cs" />
+    <Compile Include="Time\DateRanges\DateRange.cs" />
+    <Compile Include="Time\Dates\DateFinderWithers.cs" />
+    <Compile Include="Time\Dates\TimeAdjuster.cs" />
+    <Compile Include="Time\Dates\DurationFormula.cs" />
+    <Compile Include="Time\Enums\DaysOfWeek.cs" />
+    <Compile Include="Time\Enums\WeeksOfMonth.cs" />
+    <Compile Include="Time\Enums\MonthsOfYear.cs" />
+    <Compile Include="Time\Dates\DateFinder.cs" />
+    <Compile Include="Time\Conditions\TimeConditions.cs" />
+    <Compile Include="Time\Filters\TimeFilter.cs" />
+    <Compile Include="__Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Time\DateRanges\DateRangeFormula.cs" />
+    <Compile Include="Time\Dates\TimeFormula.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

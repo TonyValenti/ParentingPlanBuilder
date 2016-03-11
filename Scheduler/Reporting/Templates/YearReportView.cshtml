@@ -1,0 +1,32 @@
+﻿@*  Generator : Template
+    GeneratePrettyNames: true
+*@
+
+@using Scheduler;
+@using Scheduler.Reporting.Templates;
+
+@functions {
+    public Scheduler.Reporting.YearReport Report { get; set; }
+}
+
+<h1>
+    Parenting Plan Report for @Report.Year
+</h1>
+
+<div>
+    The following parenting plan allotment is an aggregate of the entire year of @Report.Year
+</div>
+
+@{ 
+    var Overnights = new OvernightCalculationsView();
+    Overnights.Overnights = Report.Overnights;
+}
+
+@Overnights.TransformText()
+
+<div class="PageBreak"></div>
+
+@foreach (var item in Report.Reports) {
+    @item.ToHtml()
+}
+

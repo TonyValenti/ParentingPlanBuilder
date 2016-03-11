@@ -1,0 +1,23 @@
+﻿@*  Generator : Template
+    GeneratePrettyNames: true
+*@
+@using Scheduler;
+@using Scheduler.Reporting.Templates;
+
+@functions {
+    public string DayNumber { get; set; }
+
+    public List<CalendarDayActivityView> Activities { get; private set; } = new List<CalendarDayActivityView>();
+}
+
+@{
+
+}
+
+<div class="Day">
+    <div class="DayLabel">@DayNumber</div>
+
+    @foreach (var item in Activities) {
+        @item.TransformText()
+    }
+</div>

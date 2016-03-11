@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler", "Scheduler\Scheduler.csproj", "{EC232E1C-D97D-4861-87E1-89AF327A41AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler.Tests", "Scheduler.Tests\Scheduler.Tests.csproj", "{2926A4E4-48E4-4DDD-8925-084F43CC559E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler.UI", "Scheduler.UI\Scheduler.UI.csproj", "{D364BBD2-86D0-4533-A9D7-29F83C2D99A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EC232E1C-D97D-4861-87E1-89AF327A41AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC232E1C-D97D-4861-87E1-89AF327A41AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC232E1C-D97D-4861-87E1-89AF327A41AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC232E1C-D97D-4861-87E1-89AF327A41AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2926A4E4-48E4-4DDD-8925-084F43CC559E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2926A4E4-48E4-4DDD-8925-084F43CC559E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2926A4E4-48E4-4DDD-8925-084F43CC559E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2926A4E4-48E4-4DDD-8925-084F43CC559E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D364BBD2-86D0-4533-A9D7-29F83C2D99A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D364BBD2-86D0-4533-A9D7-29F83C2D99A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D364BBD2-86D0-4533-A9D7-29F83C2D99A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D364BBD2-86D0-4533-A9D7-29F83C2D99A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,149 @@
+﻿@*  Generator : Template
+    GeneratePrettyNames: true
+*@
+@functions {
+    public Scheduler.Reporting.Report Report { get; set; }
+}
+
+<html>
+<head>
+    <style type="text/css">
+
+        .PageBreak {
+            page-break-after: always;
+        }
+
+        table tr td {
+            vertical-align: top;
+        }
+
+        .Calendar {
+            clear:both;
+        }
+
+        .Day {
+            height: 50px;
+            max-height: 50px;
+            min-height: 50px;
+            width: 50px;
+            max-width: 50px;
+            min-width: 50px;
+            float: left;
+            border: 1px solid gray;
+            position: relative;
+        }
+
+        .PinkDay {
+            background-color: pink;
+            height: 100%;
+            float: left;
+        }
+
+        .BlueDay {
+            background-color: lightskyblue;
+            height: 100%;
+            float: left;
+        }
+
+        .UnknownDay {
+            background-color: silver;
+            height: 100%;
+            float: left;
+        }
+
+
+        .DayLabel {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        .DaysOfWeek div {
+            height: 50px;
+            max-height: 50px;
+            min-height: 50px;
+            width: 50px;
+            max-width: 50px;
+            min-width: 50px;
+                float: left;
+            border: 1px solid gray;
+            position: relative;
+            text-align: center;
+            font-size: 48px;
+        }
+
+        .h1 {
+            font-size: 64px;
+        }
+
+        .Week {
+            clear: both;
+        }
+
+        .DayView {
+            float:left;
+        }
+
+        .MonthView {
+            float: left;
+        }
+
+        .MonthView table thead tr td {
+	        font-weight: bold;
+            padding-left: 20px;
+        }
+
+        .MonthView table tbody tr td {
+	        padding-left: 20px;
+        }
+
+
+        .UnknownBox {
+            background-color: silver;
+            margin-right: 5px;
+            float: left;
+            height:     15px;
+            max-height: 15px;
+            min-height: 15px;
+            width:      15px;
+            max-width:  15px;
+            min-width:  15px;
+            border: 1px solid gray;
+        }
+
+        .PinkBox {
+            background-color: pink;
+            margin-right: 5px;
+            float: left;
+            height:     15px;
+            max-height: 15px;
+            min-height: 15px;
+            width:      15px;
+            max-width:  15px;
+            min-width:  15px;
+            border: 1px solid gray;
+            
+        }
+
+        .BlueBox {
+            background-color: lightskyblue;
+            margin-right: 5px;
+            float: left;
+            height:     15px;
+            max-height: 15px;
+            min-height: 15px;
+            width:      15px;
+            max-width:  15px;
+            min-width:  15px;
+            border: 1px solid gray;
+
+        }
+
+    </style>
+</head>
+<body>
+
+@Report.ToHtml()
+
+</body>
+</html>

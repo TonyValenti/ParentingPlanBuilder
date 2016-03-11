@@ -1,0 +1,74 @@
+﻿@*  Generator : Template
+    GeneratePrettyNames: true
+*@
+@using Scheduler;
+
+
+@functions {
+    public Dictionary<ParentingAssignment, int> Overnights { get; set; }
+
+    private class AssignmentInfo {
+        public Scheduler.ParentingAssignment Assignment { get; set; }
+        public int Days { get; set; }
+    }
+
+    private AssignmentInfo Overnights_Most { get; set; }
+    private AssignmentInfo Overnights_Least { get; set; }
+    private AssignmentInfo Overnights_Difference { get; set; }
+
+    private int GetPercentage(double Top, double Bottom) {
+        double ret = 0;
+
+        if(Bottom > 0) {
+            ret = Top * 100 / Bottom ;
+        }
+
+        return (int)Math.Round(ret);
+    }
+}
+
+@{
+    var Pink = new AssignmentInfo() {
+        Assignment = Scheduler.ParentingAssignment.Pink,
+        Days = Overnights[Scheduler.ParentingAssignment.Pink]
+    };
+
+    var Blue = new AssignmentInfo() {
+        Assignment = Scheduler.ParentingAssignment.Blue,
+        Days = Overnights[Scheduler.ParentingAssignment.Blue]
+    };
+
+    Overnights_Difference = new AssignmentInfo();
+
+    Overnights_Difference.Assignment = (Pink.Days >= Blue.Days ? Pink.Assignment : Blue.Assignment);
+    Overnights_Difference.Days = Math.Abs(Pink.Days - Blue.Days);
+
+    Overnights_Most = (Pink.Days >= Blue.Days ? Pink : Blue);
+    Overnights_Least = (Pink.Days < Blue.Days ? Pink : Blue);
+
+    var TotalDays = Pink.Days + Blue.Days;
+}
+
+
+<table>
+    <tr>
+        <td><div class="@(Overnights_Most.Assignment)Box"></div></td>
+        <td align="right">@Overnights_Most.Days Overnights</td>
+        <td>(@GetPercentage(Overnights_Most.Days, Overnights_Most.Days + Overnights_Least.Days)%)</td>
+    </tr>
+    <tr>
+        <td><div class="@(Overnights_Least.Assignment)Box"></div></td>
+        <td align="right">@Overnights_Least.Days Overnights</td>
+        <td>(@GetPercentage(Overnights_Least.Days, Overnights_Most.Days + Overnights_Least.Days)%)</td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <hr />
+        </td>
+    </tr>
+    <tr>
+        <td><div class="@(Overnights_Difference.Assignment)Box"></div></td>
+        <td align="right">@Overnights_Difference.Days Overnights</td>
+        <td>(@GetPercentage(Overnights_Difference.Days, Overnights_Most.Days + Overnights_Least.Days)% More)</td>
+    </tr>
+</table>

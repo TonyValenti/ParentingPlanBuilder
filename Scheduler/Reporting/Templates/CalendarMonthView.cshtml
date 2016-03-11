@@ -1,0 +1,46 @@
+﻿@*  Generator : Template
+    GeneratePrettyNames: true
+*@
+@using Scheduler;
+@using Scheduler.Reporting.Templates;
+
+@functions {
+    public Scheduler.Reporting.MonthReport Report { get; set; }
+
+}
+
+@{
+    var Weeks = new List<CalendarWeekView>();
+
+    var FirstDayOfMonth = new DateTime(Report.Year, Report.Month, 1);
+    var DaysInMonth = DateTime.DaysInMonth(Report.Year, Report.Month);
+    var LastDay = new DateTime(Report.Year, Report.Month, DaysInMonth);
+
+    var Backup = FirstDayOfMonth;
+
+    var CurrentWeek = new CalendarWeekView();
+    Weeks.Add(CurrentWeek);
+
+    foreach (var item in Report.Reports) {
+        if (CurrentWeek.Days.Count != 0 && new DateTime(item.Year, item.Month, item.Day).DayOfWeek == DayOfWeek.Sunday) {
+            CurrentWeek = new CalendarWeekView();
+            Weeks.Add(CurrentWeek);
+        }
+        CurrentWeek.Days.Add(item);
+    }
+}
+
+<div class="DayView">
+    <div class="DaysOfWeek">
+        <div>S</div>
+        <div>M</div>
+        <div>T</div>
+        <div>W</div>
+        <div>R</div>
+        <div>F</div>
+        <div>S</div>
+    </div>
+    @foreach (var item in Weeks) {
+        @item.TransformText()
+    }
+</div>

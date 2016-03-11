@@ -1,0 +1,71 @@
+﻿@*  Generator : Template
+    GeneratePrettyNames: true
+*@
+@using Scheduler;
+@using Scheduler.Reporting.Templates;
+
+@functions {
+    public Scheduler.Reporting.MonthReport Report { get; set; }
+
+    private string ActivityTimeFormat = "ddd, MMM d @ h:mm tt";
+}
+
+@{
+    var Overnights = new OvernightCalculationsView();
+    Overnights.Overnights = Report.Overnights;
+
+    var CalendarMonthView = new CalendarMonthView();
+    CalendarMonthView.Report = this.Report;
+}
+
+
+
+<div class="Calendar">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <h1>@MonthsOfYearExtensions.GetMonth(Report.Month) @Report.Year</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @CalendarMonthView.TransformText()
+                </td>
+                <td>
+                    <div class="MathView">
+                        @Overnights.TransformText()
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="MonthView">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td>Description</td>
+                                    <td>From</td>
+                                    <td>Till</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in this.Report.Items) {
+                                    <tr>
+                                        <td><div class="@(item.Owner)Box"></div>@item.Name</td>
+                                        <td>@item.Duration.StartDate.ToString(ActivityTimeFormat)</td>
+                                        <td>@item.Duration.EndDate.ToString(ActivityTimeFormat)</td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+
+
+</div>
+
+<div class="PageBreak"></div>

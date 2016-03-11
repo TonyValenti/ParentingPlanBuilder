@@ -1,0 +1,15 @@
+﻿@*  Generator : Template
+    GeneratePrettyNames: true
+*@
+@using Scheduler;
+@using Scheduler.Reporting.Templates;
+
+@functions {
+    public double Duration { get; set; }
+    public ParentingAssignment Owner { get; set; }
+
+    public string Description { get; set; }
+}
+
+<div class="@(Owner)Day" style="width: @(Duration * 100)%;" title="@Description"></div>
+
